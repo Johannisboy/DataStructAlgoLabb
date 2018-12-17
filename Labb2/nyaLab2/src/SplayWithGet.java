@@ -12,17 +12,10 @@ public class SplayWithGet<E extends Comparable<? super E>>
      */
     private void zig(Entry x) {
         Entry y = x.right;
-        E temp = x.element;
-        x.element = y.element;
-        y.element = temp;
-        x.right = y.right;
-        if (x.right != null)
-            x.right.parent = x;
-        y.right = y.left;
-        y.left = x.left;
-        if (y.left != null)
-            y.left.parent = y;
-        x.left = y;
+        y.parent = x.parent;
+        x.parent = y;
+        x.right = y.left;
+        y.left =x ;
     }
 
     private void zig2(Entry x) {

@@ -1,4 +1,7 @@
 import java.util.Iterator;
+import java.util.Objects;
+
+import static java.util.Objects.*;
 
 public class SCLWithGet<E extends Comparable<? super E>>
         extends LinkedCollection<E>
@@ -10,7 +13,7 @@ public class SCLWithGet<E extends Comparable<? super E>>
      * @return true if element was added
      */
     @Override
-    public boolean add(E element) {
+    public boolean addRec(E element) {
         if (element == null) {
             throw new NullPointerException();
         }
@@ -32,7 +35,7 @@ public class SCLWithGet<E extends Comparable<? super E>>
      * @param prev The previous element before current recursion.
      * @param comp The current element.
      */
-    private void add(Entry prev, Entry comp) {
+    private void addRec(Entry prev, Entry comp) {
         // Put head last.
         if (comp.next == null && head.element.compareTo(comp.element) >= 0) {
             comp.next = new Entry(head.element, null);
@@ -45,7 +48,44 @@ public class SCLWithGet<E extends Comparable<? super E>>
         } else {
             Entry tmp = new Entry(head.element, comp);
             prev.next = tmp;
+
+
+    @Override
+    public boolean addIt(E element)
+    {
+        Iterator iter = this.iterator();
+        if ( element == null )
+            throw new NullPointerException();
+        else if(this.size() < 1)
+        {
+            head = new Entry( element, head );
+            return true;
+
         }
+        else {
+            Entry prevEntry=head;
+            Entry tempEntry = head;
+            E next = null;
+
+            while (iter.hasNext()) {
+                next = (E) iter.next();
+                prevEntry = tempEntry;
+                tempEntry=tempEntry.next;
+                if (next.compareTo(element) > 0)
+                {
+                    Entry newEntry = new Entry(element,tempEntry);
+                    prevEntry.next=newEntry;
+                    return true;
+                }
+
+            }
+            prevEntry.next=new Entry(element, null);
+            return true;
+
+        }
+
+
+
     }
 
     /**

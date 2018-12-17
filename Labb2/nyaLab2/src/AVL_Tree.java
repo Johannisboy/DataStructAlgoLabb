@@ -258,18 +258,18 @@ public class AVL_Tree<E extends Comparable<? super E>>
                B   C          A   B   
      */
 	 private void rotateLeft( Entry x ) {
-		 Entry  y  = x.right;
-		 E temp    = x.element;
-		 x.element = y.element;
-		 y.element = temp;
-		 x.right   = y.right;
-		 if ( x.right != null )
-			 x.right.parent  = x;
-		 y.right   = y.left;
-		 y.left    = x.left;
-		 if ( y.left != null )
-			 y.left.parent   = y;
-		 x.left    = y;
+			 Entry  y  = x.right;
+			 E temp    = x.element;
+			 x.element = y.element;
+			 y.element = temp;
+			 x.right   = y.right;
+			 if ( x.right != null )
+				 x.right.parent  = x;
+			 y.right   = y.left;
+			 y.left    = x.left;
+			 if ( y.left != null )
+				 y.left.parent   = y;
+			 x.left    = y;
 		 checkHeight( y );
 		 checkHeight( x );
 	 } //   rotateLeft
