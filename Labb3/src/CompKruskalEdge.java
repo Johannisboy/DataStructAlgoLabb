@@ -23,6 +23,7 @@ public class CompKruskalEdge<E extends Edge> {
         // Add all edges to the priority queue.
         this.pQueue = new PriorityQueue<>();
 
+        // Add all edges as KruskalEdges to the priority queue.
         for (E edge : edges) {
             // TODO: @jol Can' get access to the line name because it only knows about Edge, not BusEdge which implements it.
             this.pQueue.offer(new KruskalEdge(edge.getSource(), edge.getDest(), edge.getWeight(), "line"));
@@ -82,7 +83,7 @@ public class CompKruskalEdge<E extends Edge> {
      */
     public Iterator<E> getMST() {
         while (!pQueue.isEmpty() && kruskalNodes.size() > 1) {
-            // Get the nodes connected to the edge with min weight.
+            // Get the nodes connected to the edge with minimum weight.
             E currentEdge = (E) pQueue.poll();
             KruskalNode fromNode = kruskalNodes.get(currentEdge.getSource());
             KruskalNode toNode = kruskalNodes.get(currentEdge.getDest());
@@ -90,14 +91,28 @@ public class CompKruskalEdge<E extends Edge> {
             // If nodes list of edges doesn't point to same list, add smaller to larger.
             if (fromNode.edgeList != toNode.edgeList) {
                 if (fromNode.edgeList.size() > toNode.edgeList.size()) {
+                    // Copy over all edges then change reference for all the nodes lists to destination-node list
                     fromNode.edgeList.addAll(toNode.edgeList);
+                    for (E edge : toNode.edgeList) {
+                        KruskalNode fromTmp = kruskalNodes.get(edge.getSource());
+                        KruskalNode toTmp = kruskalNodes.get(edge.getDest());
+                        fromTmp.edgeList = fromNode.edgeList;
+                        toTmp.edgeList = fromNode.edgeList;
+                    }
+
                     toNode.edgeList = fromNode.edgeList;
-                    //TODO: @jol Maybe need to redirect other references in kruskalNodes to correct list.
                     fromNode.edgeList.add(currentEdge);
                 } else {
+                    // Copy over all edges then change reference for all the nodes lists to source-node list
                     toNode.edgeList.addAll(fromNode.edgeList);
+                    for (E edge : fromNode.edgeList) {
+                        KruskalNode fromTmp = kruskalNodes.get(edge.getSource());
+                        KruskalNode toTmp = kruskalNodes.get(edge.getDest());
+                        fromTmp.edgeList = toNode.edgeList;
+                        toTmp.edgeList = toNode.edgeList;
+                    }
+
                     fromNode.edgeList = toNode.edgeList;
-                    //TODO: @jol Maybe need to redirect other references in kruskalNodes to correct list.
                     toNode.edgeList.add(currentEdge);
                 }
             }
@@ -107,5 +122,4 @@ public class CompKruskalEdge<E extends Edge> {
         // Return an iterator of the only list remaining.
         return kruskalNodes.get(0).edgeList.iterator();
     }
-
 }
