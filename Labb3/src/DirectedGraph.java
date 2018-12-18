@@ -15,12 +15,12 @@ public class DirectedGraph<E extends Edge> {
 	}
 
 	public Iterator<E> shortestPath(int from, int to) {
-		CompKruskalEdge kruskal = new CompKruskalEdge(edges, noOfNodes);
-		return kruskal.getMST();
+		return null;
 	}
 		
 	public Iterator<E> minimumSpanningTree() {
-		return null;
+		CompKruskalEdge kruskal = new CompKruskalEdge(edges, noOfNodes);
+		return kruskal.getMST();
 	}
 
 }
