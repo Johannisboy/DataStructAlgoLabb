@@ -38,7 +38,7 @@ public class TestFrame extends JFrame implements ActionListener {
             /* ## TAG BORT kommentarna på de 2 följande raderna när ni skrivit era samlingar */
 
             containerSplay = new SplayWithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>(),
-            containerSLC = new SCLWithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>(),
+            containerSLC = new SLCWithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>(),
             containerBST = new BSTwithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>(),
             containerAVL = new AVLwithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>();
 

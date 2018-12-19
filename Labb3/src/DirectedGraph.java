@@ -6,8 +6,9 @@ import java.util.*;
  */
 public class DirectedGraph<E extends Edge> {
 
-    private LinkedList<E> edges;
     private int noOfNodes;
+    private LinkedList<E> edges;
+    private List<E>[] neighbours;
 
     /**
      * Constructor.
@@ -16,7 +17,10 @@ public class DirectedGraph<E extends Edge> {
     public DirectedGraph(int noOfNodes) {
         this.edges = new LinkedList<E>();
         this.noOfNodes = noOfNodes;
-
+        this.neighbours = new List[noOfNodes];
+        for (int i = 0; i < noOfNodes; i++) {
+            neighbours[i] = new LinkedList<>();
+        }
     }
 
     /**
@@ -25,6 +29,7 @@ public class DirectedGraph<E extends Edge> {
      */
     public void addEdge(E e) {
         edges.add(e);
+        neighbours[e.from].add(e);
     }
 
     /**
