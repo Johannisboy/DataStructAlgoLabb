@@ -18,8 +18,9 @@ public class DirectedGraph<E extends Edge> {
         this.edges = new LinkedList<E>();
         this.noOfNodes = noOfNodes;
         this.neighbours = new List[noOfNodes];
-        for (int i = 0; i < noOfNodes; i++) {
-            neighbours[i] = new LinkedList<>();
+        for(int i =0; i< noOfNodes;i++)
+        {
+            this.neighbours[i]= new ArrayList<>();
         }
     }
 
@@ -28,8 +29,8 @@ public class DirectedGraph<E extends Edge> {
      * @param e The edge to be added.
      */
     public void addEdge(E e) {
-        edges.add(e);
-        neighbours[e.from].add(e);
+        this.edges.add(e);
+        this.neighbours[e.from].add(e);
     }
 
     /**
@@ -39,6 +40,38 @@ public class DirectedGraph<E extends Edge> {
      * @return An iterator that iterates over the shortest path.
      */
     public Iterator<E> shortestPath(int from, int to) {
+        PriorityQueue<CompDijkstraPath> PQ = new PriorityQueue<>();
+        ArrayList<Integer> visited = new ArrayList<>();
+        CompDijkstraPath startNode = new CompDijkstraPath(from, 0,new LinkedList<BusEdge>());
+        PQ.add(startNode);
+
+        while (!PQ.isEmpty())
+        {
+            CompDijkstraPath node = PQ.poll();
+            if (!visited.contains(node.nodeObject))
+            {
+                if(node.nodeObject==to){
+                    return node.path.iterator();
+                }
+                else {
+                    visited.add(node.nodeObject);
+                    List<E> neighboursList = neighbours[node.nodeObject];
+                    for (E e:neighboursList) {
+                        if(!visited.contains(e.to))
+                        {
+                            LinkedList<BusEdge> tempPath = new LinkedList<>();
+                            for (Object q:node.path) {
+                                tempPath.add((BusEdge)q);
+                            }
+                            CompDijkstraPath newNode = new CompDijkstraPath(e.to,node.cost+e.getWeight(),tempPath);
+                            newNode.path.add(e);
+                            PQ.add(newNode);
+                        }
+                    }
+                }
+            }
+        }
+
         return null;
     }
 

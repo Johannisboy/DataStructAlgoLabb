@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdba7d21-ce68-4d7d-a529-1c8e4e10fccc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/nyaLab2/LinkedCollection$Entry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nyaLab2/LinkedCollection$Entry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/nyaLab2/LinkedCollection$LinkedCollectionIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nyaLab2/LinkedCollection$LinkedCollectionIterator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/nyaLab2/LinkedCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nyaLab2/LinkedCollection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/nyaLab2/SCLWithGet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/nyaLab2/SplayWithGet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nyaLab2/SplayWithGet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/nyaLab2/TestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nyaLab2/TestFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/nyaLab2/aTEXT0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/nyaLab2/aTEXT0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SCLWithGet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SplayWithGet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SplayWithGet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aTEXT0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/aTEXT0.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Labb3/src/DirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Labb3/src/DirectedGraph.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,13 +16,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1305">
+            <state relative-caret-position="3621">
               <caret line="224" column="46" selection-start-line="224" selection-start-column="46" selection-end-line="224" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SplayWithGet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -69,19 +56,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/aTEXT0.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestMapWithCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="1292">
               <caret line="82" selection-start-line="82" selection-end-line="82" />
             </state>
           </provider>
@@ -142,7 +120,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545245855569" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545245901301" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
@@ -189,7 +167,7 @@
     <option name="totallyTimeSpent" value="5460000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1462" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.17902996" />
@@ -202,7 +180,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32827735" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4037199" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -315,15 +293,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
+        <state relative-caret-position="3621">
           <caret line="224" column="46" selection-start-line="224" selection-start-column="46" selection-end-line="224" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestMapWithCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="1292">
           <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aTEXT0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -354,13 +339,6 @@
             <element signature="docComment;method#find#0;class#SplayWithGet#0" />
             <element signature="docComment;method#find#1;class#SplayWithGet#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aTEXT0.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
         </state>
       </provider>
     </entry>
