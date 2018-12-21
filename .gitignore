@@ -7,3 +7,28 @@
 !/Labb3/src/**
 # You can be specific with these rules
 !/Labb2/nyaLab2/src
+Labb3/\.idea/
+
+Labb1/\.idea/
+
+Labb1/desktop\.ini
+
+Labb1/Labb13egg\.iml
+
+Labb2/desktop\.ini
+
+Labb3/desktop\.ini
+
+Labb3/Laboration 3\.iml
+
+Labb2/nyaLab2/\.idea/
+
+Labb2/nyaLab2/out/
+
+Labb1/KodTillLab1U2/\.idea/
+
+Labb1/KodTillLab1U2/out/
+
+Labb3/out/
+
+Labb1/KodTillLab1U2/desktop\.ini

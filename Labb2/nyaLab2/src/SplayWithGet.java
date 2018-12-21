@@ -65,62 +65,67 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
     }
 
     private void zigzig(Entry x) {
-        x=x.parent.parent;
-
+        // Get children and change element between first and last
         Entry y = x.right;
-        E temp = x.element;
-        x.element = y.element;
-        y.element = temp;
-        x.right = y.right;
-        if (x.right != null)
-            x.right.parent = x;
-        y.right = y.left;
-        y.left = x.left;
-        if (y.left != null)
-            y.left.parent = y;
-        x.left = y;
+        Entry z = x.right.right;
+        E e = x.element;
+        x.element = z.element;
+        z.element = e;
 
-        y = x.right;
-        temp = x.element;
-        x.element = y.element;
-        y.element = temp;
-        x.right = y.right;
-        if (x.right != null)
-            x.right.parent = x;
-        y.right = y.left;
-        y.left = x.left;
-        if (y.left != null)
-            y.left.parent = y;
+        x.right = z.right;
+        if (z.right != null) {
+            z.right.parent = x;
+        }
+
+        y.right = z.left;
+        if (z.left != null) {
+            z.left.parent = y;
+        }
+
+        z.right = y.left;
+        if (y.left != null) {
+            y.left.parent = z;
+        }
+
+        z.left = x.left;
+        if (x.left != null) {
+            x.left.parent = z;
+        }
+
+        y.left = z;
         x.left = y;
     }
 
     private void zagzag(Entry x) {
-        x=x.parent.parent;
-
+        // Get children and change element between first and last
         Entry y = x.left;
-        E temp = x.element;
-        x.element = y.element;
-        y.element = temp;
-        x.left = y.left;
-        if (x.left != null)
-            x.left.parent = x;
-        y.left = y.right;
-        y.right = x.right;
-        if (y.right != null)
-            y.right.parent = y;
+        Entry z = x.left.left;
+        E e = x.element;
+        x.element = z.element;
+        z.element = e;
+
+        x.left = z.left;
+        if (z.left != null) {
+            z.left.parent = x;
+        }
+
+        y.left = z.right;
+        if (z.right != null) {
+            z.right.parent = y;
+        }
+
+        z.left = y.right;
+        if (y.right != null) {
+            y.right.parent = z;
+        }
+
+        z.right = x.right;
+        if (x.right != null) {
+            x.right.parent = z;
+        }
+
+        y.right = z;
         x.right = y;
-        Entry q = x.left;
-        E temp2 = x.element;
-        x.element = q.element;
-        q.element = temp2;
-        x.left = q.left;
-        if (x.left != null)
-            x.left.parent = x;
-        q.left = q.right;
-        q.right = x.right;
-        if (q.right != null)
-            q.right.parent = q;
-        x.right = q;
     }
 
     /**
@@ -154,27 +159,27 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
             if (t.parent != root) {
                 if (t.parent.parent.right != null) {
                     if (t.equals(t.parent.parent.right.right)) {
-                        zigzig(t);
-                        t = t.parent;
+                        zigzig(t.parent.parent);
+                        t = t.parent.parent;
                     } else if (t.equals(t.parent.parent.right.left)) {
                         zagzig(t.parent.parent);
                         t = t.parent;
                     } else if (t.equals(t.parent.parent.left.left)) {
-                        zagzag(t);
-                        t = t.parent;
+                        zagzag(t.parent.parent);
+                        t = t.parent.parent;
                     } else if (t.equals(t.parent.parent.left.right)) {
                         zigzag(t.parent.parent);
                         t = t.parent;
                     }
                 } else if (t.parent.parent.left != null) {
                     if (t.equals(t.parent.parent.left.left)) {
-                        zagzag(t);
-                        t = t.parent;
+                        zagzag(t.parent.parent);
+                        t = t.parent.parent;
                     } else if (t.equals(t.parent.parent.left.right)) {
                         zigzag(t.parent.parent);
                         t = t.parent;
                     } else if (t.equals(t.parent.parent.right.right)) {
-                        zigzig(t);
+                        zigzig(t.parent.parent);
                         t = t.parent.parent;
                     } else if (t.equals(t.parent.parent.right.left)) {
                         zagzig(t.parent.parent);
