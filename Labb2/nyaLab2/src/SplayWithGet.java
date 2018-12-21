@@ -65,17 +65,67 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
     }
 
     private void zigzig(Entry x) {
-        zig(x.parent.parent);
-        zig(x.parent);
+        x=x.parent.parent;
+
+        Entry y = x.right;
+        E temp = x.element;
+        x.element = y.element;
+        y.element = temp;
+        x.right = y.right;
+        if (x.right != null)
+            x.right.parent = x;
+        y.right = y.left;
+        y.left = x.left;
+        if (y.left != null)
+            y.left.parent = y;
+        x.left = y;
+
+        y = x.right;
+        temp = x.element;
+        x.element = y.element;
+        y.element = temp;
+        x.right = y.right;
+        if (x.right != null)
+            x.right.parent = x;
+        y.right = y.left;
+        y.left = x.left;
+        if (y.left != null)
+            y.left.parent = y;
+        x.left = y;
     }
 
     private void zagzag(Entry x) {
-        zag(x.parent.parent);
-        zag(x.parent);
+        x=x.parent.parent;
+
+        Entry y = x.left;
+        E temp = x.element;
+        x.element = y.element;
+        y.element = temp;
+        x.left = y.left;
+        if (x.left != null)
+            x.left.parent = x;
+        y.left = y.right;
+        y.right = x.right;
+        if (y.right != null)
+            y.right.parent = y;
+        x.right = y;
+        Entry q = x.left;
+        E temp2 = x.element;
+        x.element = q.element;
+        q.element = temp2;
+        x.left = q.left;
+        if (x.left != null)
+            x.left.parent = x;
+        q.left = q.right;
+        q.right = x.right;
+        if (q.right != null)
+            q.right.parent = q;
+        x.right = q;
     }
 
     /**
      * Given the element, if it's not added, adds it to the map or else it find it and sorts it.
+     *
      * @param e The dummy element to compare to.
      * @return The e
      */
@@ -95,6 +145,7 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
 
     /**
      * Sorts the entry according to the splay rules
+     *
      * @param t The entry to be sorted
      */
     public void sort(Entry t) {
@@ -108,12 +159,10 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
                     } else if (t.equals(t.parent.parent.right.left)) {
                         zagzig(t.parent.parent);
                         t = t.parent;
-                    }
-                    else if (t.equals(t.parent.parent.left.left)) {
+                    } else if (t.equals(t.parent.parent.left.left)) {
                         zagzag(t);
                         t = t.parent;
-                    }
-                    else if (t.equals(t.parent.parent.left.right)) {
+                    } else if (t.equals(t.parent.parent.left.right)) {
                         zigzag(t.parent.parent);
                         t = t.parent;
                     }
@@ -121,12 +170,10 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
                     if (t.equals(t.parent.parent.left.left)) {
                         zagzag(t);
                         t = t.parent;
-                    }
-                    else if (t.equals(t.parent.parent.left.right)) {
+                    } else if (t.equals(t.parent.parent.left.right)) {
                         zigzag(t.parent.parent);
                         t = t.parent;
-                    }
-                    else if (t.equals(t.parent.parent.right.right)) {
+                    } else if (t.equals(t.parent.parent.right.right)) {
                         zigzig(t);
                         t = t.parent.parent;
                     } else if (t.equals(t.parent.parent.right.left)) {
@@ -143,8 +190,9 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
 
     /**
      * Starter method for find.
+     *
      * @param elem Element to search for.
-     * @param t Current entry that's being looked at.
+     * @param t    Current entry that's being looked at.
      * @return Entry if found, else null.
      */
     public Entry find(E elem, Entry t) {
@@ -152,7 +200,7 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
             return null;
         } else {
             int jfr = elem.compareTo(t.element);
-            if (jfr  < 0) {
+            if (jfr < 0) {
                 return find(elem, t.left, t);
             } else if (jfr > 0) {
                 return find(elem, t.right, t);
@@ -164,8 +212,9 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
 
     /**
      * Recursive method for finding an element in a tree and splaying the most recent accessed entry.
+     *
      * @param elem Element to search for.
-     * @param t Current entry being looked at.
+     * @param t    Current entry being looked at.
      * @param prev Previous entry.
      * @return Entry if found, else null.
      */
@@ -175,7 +224,7 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
             return null;
         } else {
             int jfr = elem.compareTo(t.element);
-            if (jfr  < 0) {
+            if (jfr < 0) {
                 return find(elem, t.left, t);
             } else if (jfr > 0) {
                 return find(elem, t.right, t);
